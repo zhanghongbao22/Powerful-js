@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grid网格布局</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 500px;
+			height: 500px;
+			background:#ccc;
+			margin:200px auto;
+			display:grid;  /*定义盒子中为网格布局*/
+			/*grid-template-columns:33.3% 33.3% 33.3%;*/  /*设置行
+			/*grid-template-rows:33.3% 33.3% 33.3%;*/		/*设置列*/
+			/*接受两个参数，第一个参数是重复的次数（上例是3），第二个参数是所要重复的值。*/
+			/*grid-template-columns:repeat(auto-fill,20px);*/  /*每列宽度100px，然后自动填充，直到容器不能放置更多的列。*/
+			/*grid-template-columns: 150px 1fr 2fr;*/ /*第一列的宽度为150像素，第二列的宽度是第三列的一半。*/
+			 grid-template-areas:"header header header"
+                     			"main main sidebar"
+                     			"footer footer footer";
+            grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4];
+            align-items:center;
+            justify-items:center;
+
+
+		}
+		.wrap p{
+			width: 60px;
+			height: 60px;
+			background:pink;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p>这是网格第1个p</p>
+		<p>这是网格第2个p</p>
+		<p>这是网格第3个p</p>
+	</div>
+</body>
+</html>

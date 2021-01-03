@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery仿唯品会鼠标悬停弹出图片效果</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			height: 352px;
+			width: 572px;
+			position:relative;
+			margin:200px auto;
+		}
+		img{
+			display:block;
+		}
+		.hide{
+			position:absolute;
+			top:32px;
+			left:26px;
+			width: 520px;
+			z-index:10;
+			display:none;
+			background:#fff;
+			border-radius:5px;
+		}
+		.hide .top{
+			width:486px;
+			height: 219px;
+			padding:0 17px;
+			border-bottom:1px dotted #000;
+		}
+		.hide .top img{
+			width: 140px;
+			height: 177px;
+			float:left;	
+			margin-right:20px;
+		}
+		.hide .top .bottom{
+			height: 80px;
+		}
+		.hide  .bottom img,.hide .bottom span,.hide .bottom a{
+			float:left;
+		}
+		.hide  .bottom img{
+			width: 61px;
+			margin:23px 76px 0 56px;
+			height: 41px;
+		}
+		.hide .bottom span{
+			width: 88px;
+			height: 26px;
+			border:1px solid #ccc;
+			border-radius:15px;
+			margin-top:32px;
+			font:11px/26px "宋体";
+		}
+		.hide .bottom span b{
+			float:left;
+			height: 30px;
+			width: 26px;
+			background:url(心.png) no-repeat 8px 6px;
+		}
+		.hide .bottom a{
+			margin-left:90px;
+			width: 142px;
+			height: 30px;
+			border-radius:10px;
+			margin-top:29px;
+			font:12px/30px "宋体";
+			text-align:center;	
+			border:1px solid #ccc;
+			text-decoration:none;
+			color:#000;						
+		}
+		.wrap .white{
+			height: 105px;
+			width: 320px;
+			position:absolute;
+			bottom:15px;
+			left:120px;
+			border-radius:3px;
+			background:rgba(255,255,255,0.7);
+			text-align:center;
+		}
+		.wrap .white p:first-of-type{
+			height:56px;
+			padding-top:11px;
+		}
+		.wrap .white p:first-of-type img{
+			width: 63px;
+			height: 41px;
+			margin:0 auto ;
+		}
+		.wrap .white h5{
+			font-size:17px;
+			margin-bottom:10px;
+			height: 17px;									
+		}
+		.wrap .white h5+p{
+			font:11px/11px "宋体";
+		}
+		.wrap:hover>img,.wrap:hover>.white{
+			filter:blur(3px);
+		}
+		.wrap:hover .hide{
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<img src="1.jpg" alt="">
+		<div class="hide">
+			<div class="top">
+				<img src="2.jpg" alt="">
+				<img src="3.jpg" alt="">
+				<img src="4.jpg" alt="">
+			</div>
+			<div class="bottom">
+				<img src="50043343.png" alt="">
+				<span><b></b>收藏品牌</span>
+				<a href="#">进入专场</a>
+			</div>
+		</div>
+		<div class="white">
+				<p><img src="50043343.png" alt=""></p>
+				<h5>摩登浪漫 独具个性</h5>
+				<p>跨专场满199减80，上不封顶</p>
+			</div>
+	</div>
+</body>
+</html>

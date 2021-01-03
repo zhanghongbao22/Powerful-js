@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽获取信息的自我练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			height: 800px;
+			width: 800px;
+			margin:100px auto;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" draggable="true"></div>
+</body>
+<script>
+	var wrap=document.querySelector(".wrap")
+	
+	
+	wrap.ondragover=function(e){
+		e.preventDefault()
+		e.stopPropagation()
+	}
+	wrap.ondrop=function(e){
+		e.preventDefault()
+		e.stopPropagation()
+		var file=e.dataTransfer.files[0]
+		if(file.type.split("/")[0]=="image"){
+			var reader=new FileReader()
+			reader.onload=function(e){
+				console.log(reader.result) //最后获取出来的结果在rader的result里边放着
+				console.log(e.currentTarget.result)
+			}
+			reader.readAsDataURL(file)
+		}
+	}
+</script>
+</html>

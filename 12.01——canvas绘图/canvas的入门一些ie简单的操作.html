@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!-- 1、准备画布 -->
+		<!-- 1.1 画布为白色的,有默认大小 300*150 -->
+		<!-- 1.2设置画布大小（直接在标签中写，在css中写的话等于放大画布，所以里边的内容也会随之放大） -->
+	<canvas width="600" height="600"></canvas>
+	<!-- 2、准备绘制工具 -->
+	
+	<!-- 3、利用工具画图 -->
+	
+</body>
+<script>
+	// 2.1获取元素
+	var mycanvas=document.querySelector("canvas")
+	// 2.2获取上下文 绘制工具箱
+	var ctx=mycanvas.getContext("2d") //暂时没有3d的绘画,网页中的3d效果都是web gl绘制的 
+	// 2.3 移动画笔
+	ctx.moveTo(100,100) //x左 y上
+	// 2.4 绘制直线(轨迹，绘制路径)
+	ctx.lineTo(200,100)
+	// 2.5 描边
+	ctx.stroke()
+</script>
+</html>

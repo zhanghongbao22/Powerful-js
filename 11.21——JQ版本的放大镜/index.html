@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ版本的放大镜</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 500px;
+			height: 500px;
+			position:relative;
+		}
+		.wrap .small{
+			width: 500px;
+			height: 500px;
+			position:relative;
+		}
+		.wrap .small .move{
+			background:rgba(0,255,0,0.5);
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.bigimg{
+			width: 800px;
+			height: 900px;
+			position:relative;
+		}
+		.bigimg img{
+			width: 3000px;
+			height: 5000px;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="small">
+			<img src="06.png" alt="">
+			<div class="move"></div>
+		</div>
+		<div class="bigimg">
+			<img src="06.png" alt="">
+		</div>
+	</div>
+</body>
+<script>
+
+</script>
+</html> 

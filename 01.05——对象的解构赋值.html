@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj={
+		name:"zzzz",
+		age:"22",
+		falimy:{
+			mather:"1111",
+			father:"2222"
+		}
+	}
+	
+	 var obj2=({name , age,falimy}=obj)
+console.log(obj2)
+	 obj2.name="hhhh"
+	console.log(obj)
+	console.log(obj2)
+	console.log(name,age)
+	console.log(({name , age,falimy}=obj))
+</script>
+</html>

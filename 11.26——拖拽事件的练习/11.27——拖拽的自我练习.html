@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11.27——拖拽的自我练习</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 700px;
+			margin:200px auto;
+			border:1px solid #ccc;
+		}
+		.list1{
+			float:left;
+			width: 300px;
+			border:1px solid #ccc;
+		}
+		.list2{
+			float:right;
+			width: 300px;
+			border:1px solid #ccc;
+		}
+		ul li{
+			height: 30px;
+			list-style:none;
+			font:16px/30px "黑体";
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="list1">
+			<li draggable="true" class="list1-1">我是list1的第1个li标签</li>
+			<li draggable="true" class="list1-2">我是list1的第2个li标签</li>
+			<li draggable="true" class="list1-3">我是list1的第3个li标签</li>
+			<li draggable="true" class="list1-4">我是list1的第4个li标签</li>
+			<li draggable="true" class="list1-5">我是list1的第5个li标签</li>
+			<li draggable="true" class="list1-6">我是list1的第6个li标签</li>
+			<li draggable="true" class="list1-7">我是list1的第7个li标签</li>
+			<li draggable="true" class="list1-8">我是list1的第8个li标签</li>
+			<li draggable="true" class="list1-9">我是list1的第9个li标签</li>
+			<li draggable="true" class="list1-10">我是list1的第10个li标签</li>
+		</ul>
+		<ul class="list2">
+			<li draggable="true" class="list-11">我是list1的第1个li标签</li>
+			<li draggable="true" class="list-12">我是list1的第2个li标签</li>
+			<li draggable="true" class="list-13">我是list1的第3个li标签</li>
+			<li draggable="true" class="list-14">我是list1的第4个li标签</li>
+			<li draggable="true" class="list-15">我是list1的第5个li标签</li>
+			<li draggable="true" class="list-16">我是list1的第6个li标签</li>
+			<li draggable="true" class="list-17">我是list1的第7个li标签</li>
+			<li draggable="true" class="list-18">我是list1的第8个li标签</li>
+			<li draggable="true" class="list-19">我是list1的第9个li标签</li>
+			<li draggable="true" class="list-20">我是list1的第10个li标签</li>
+		</ul>
+	</div>
+</body>
+<script>
+  	var li=document.querySelectorAll("ul li")
+  	for(var i=0;i<li.length;i++){
+  		li[i].ondragstart=function(e){
+  			e.dataTransfer.setData("text/html",this.className);
+  		}
+  	}
+  	var ul=document.querySelectorAll("ul")
+
+  	for(var i=0;i<ul.length;i++){
+  		ul[i].ondragover=function(e){
+  			e.preventDefault()
+  		};
+  		ul[i].ondrop=function(e){
+  			this.appendChild(document.querySelector("."+e.dataTransfer.getData("text/html")))
+  			
+  		};
+  	}
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>backgroud-clip</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap {
+			width: 200px;
+			height: 200px;
+			background-image:url(05.png),url(06.png);
+			background-repeat:no-repeat,repeat;
+			background-position:0 0,60px 6px;
+			background-clip:border-box;
+				/*border-box 	设置背景图覆盖到边框*/
+				/*padding-box	背景覆盖到内边距框  默认*/
+				/*content-box	背景覆盖到内容框*/
+				/*text   文字裁剪 兼容谷歌浏览器*/
+			background-origin:border-box; /*设置背景图片的定位（原点）*/
+				/*border-box	        背景图片的定位（原点）在 边框盒*/
+				/*padding-box	背景图片的定位（原点）在 内边距框*/
+				/*content-box	背景图片的定位（原点）在 内容框*/
+			background-size:40px 40px ;   /*设置背景图片的大小*/
+			padding:20px;
+			border:20px solid transparent;
+			margin:200px auto;
+			
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>

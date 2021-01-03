@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600"></canvas>	
+</body>
+<script>
+
+	var mycanvas=document.querySelector("canvas")
+
+	var ctx=mycanvas.getContext("2d")
+	// 绘制一个三角形
+	ctx.moveTo(100,200)
+	ctx.lineTo(50,300)
+	ctx.lineTo(150,300)
+	//起始点和lineTo的结束点无法完全闭合
+	//使用canvas的自动闭合就可以解决无法闭合的问题
+	// ctx.lineTo(100,200) 
+	ctx.closePath() 	//关闭路径 
+	
+	
+	ctx.lineWidth=10;
+	// 描边
+	ctx.fillStyle="blue"  //设置填充的颜色
+	ctx.stroke()
+	// 填充
+	ctx.fill()
+
+</script>
+</html>

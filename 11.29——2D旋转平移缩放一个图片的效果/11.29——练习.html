@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片的2D操作</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body,html{
+			height: 100%;
+			background:url(timg.jpg) no-repeat 0 0;
+			background-size:100% 100%;
+		}
+		img{
+			position:absolute;
+			margin-top:-100px;
+			top:50%;
+			width: 200px;
+			height: 200px;
+			border:20px solid #fff;
+			/*translate:(50deg,40deg);*/
+			/*transform:rotate(30deg);*/
+			/*transform:skew(15deg,20deg);*/
+			transform:rotate(20deg);
+			transition:0.5s;
+		}
+		img:hover{
+			transform:rotate(0deg);
+			transform:scale(1.5,1.5);
+			transition:0.5s;
+		}
+		.img1{
+			left:20%;
+		}
+		.img2{
+			left:40%;
+		}
+		.img3{
+			left:60%;
+		}
+		.img4{
+			left:80%;
+		}
+		
+	</style>
+</head>
+<body>
+	<img src="01.png" alt="" class="img1">
+	<img src="02.png" alt="" class="img2">
+	<img src="03.png" alt="" class="img3">
+	<img src="04.png" alt="" class="img4">
+	
+</body>
+</html>

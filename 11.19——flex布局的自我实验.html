@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex布局的自我实验</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 500px;
+			height: 500px;
+			display:flex;
+			background:#ccc;
+			margin:200px auto;
+			flex-flow:row wrap;
+			justify-content:space-around;
+			align-items:flex-end;
+			align-content:space-around;
+		}
+		.wrap p{
+			width: 60px;
+			height: 60px;
+			background:pink;
+			font:12px/20px "宋体";
+			text-align:center;
+			/*flex-grow:1;*/
+		}
+		.wrap p:nth-child(2){
+			line-height:60px;
+			/*flex-grow:2;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p>这是第1个标签</p>
+		<p>这是第2个</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+		<p>这是第3个标签</p>
+	</div>
+</body>
+</html>

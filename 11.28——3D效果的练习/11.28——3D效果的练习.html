@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D效果的练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 200px;
+			height: 200px;
+			margin:50px auto;
+			transform:rotate3d(20,10,1,50deg);  /*设置父盒子为3d效果的盒子*/
+			/*让子元素保留3d变换后的样式*/
+			transform-style:preserve-3d;
+
+			/*添加透明景深效果*/
+			perspective:0px;
+			/*设置观察角度*/
+			perspective-origin:0px 0px;
+		}
+
+		.wrap div{
+			width: 200px;
+			height: 200px;
+			position:absolute;
+			opacity:0.5;
+		}
+		.box1{
+			background:pink;
+			transform:translate3d(0,0,100px);
+		}
+		.box2{
+			background:red;
+			transform:translate3d(0,0,-100px) rotateY(180deg);
+		}
+		.box3{
+			background:blue;
+			transform:translate3d(-100px,0,0) rotateY(-90deg);
+		}
+		.box4{
+			background:white;
+			transform:translate3d(100px,0,0) rotateY(90deg);
+		}
+		.box5{
+			background:yellow;
+			transform:translate3d(0,100px,0) rotateX(90deg);
+		}
+		.box6{
+			background:green;
+			transform:translate3d(0,-100px,0) rotateX(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+		<div class="box4">4</div>
+		<div class="box5">5</div>
+		<div class="box6">6</div>
+	</div>
+</body>
+</html>

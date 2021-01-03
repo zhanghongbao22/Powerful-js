@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽元素的自我练习</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 900px;
+			height: 900px;
+			margin:200px auto;
+			border:2px solid #ccc;
+		}
+		li{
+			list-style:none;
+			margin:15px 0;
+		}
+		.list1{
+			float:left;
+			width: 400px;
+		}
+		.list2{
+			float:right;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="list1">
+			<li draggable=true >这是list1的第1个li</li>
+			<li draggable=true >这是list1的第2个li</li>
+			<li draggable=true >这是list1的第3个li</li>
+			<li draggable=true >这是list1的第4个li</li>
+			<li draggable=true >这是list1的第5个li</li>
+			<li draggable=true >这是list1的第6个li</li>
+			<li draggable=true >这是list1的第7个li</li>
+			<li draggable=true >这是list1的第8个li</li>
+		</ul>
+		<ul class="list2">
+			<li draggable=true >这是list2的第1个li</li>
+			<li draggable=true >这是list2的第2个li</li>
+			<li draggable=true >这是list2的第3个li</li>
+			<li draggable=true >这是list2的第4个li</li>
+			<li draggable=true >这是list2的第5个li</li>
+			<li draggable=true >这是list2的第6个li</li>
+			<li draggable=true >这是list2的第7个li</li>
+			<li draggable=true >这是list2的第8个li</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var list1Li=document.querySelectorAll(".list1 li")
+	var list2Li=document.querySelectorAll(".list2 li")
+	var list2=document.querySelector(".list2")
+	for(var i=0;i<list1Li.length;i++){
+		list1Li[i].ondrag=function(e){
+			console.log()
+		}
+	}
+	$(".list2").on({
+		drap:function(e){
+			console.log(e.dataTransfer.getData("text/html"))
+		},
+		drapover:function(e){
+			e.preventDefault()
+			e.stopPropagation()
+		}
+	})
+	// $(".list1 li").on({
+	// 	drag:function(e){
+	// 		console.log(e)
+	// 		console.log(e.dataTransfer)
+	// 		e.dataTransfer.setData("text/html",e.currentTarget)
+
+	// 	}
+	// })
+</script>
+</html>

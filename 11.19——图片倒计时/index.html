@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片倒计时</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 600px;
+			height: 600px;
+			margin:200px auto;
+		}
+		.wrap form{
+			height: 200px;
+		}
+		.wrap .dd{
+			float:left;
+			width: 120px;
+			height: 200px;
+			background:url(10.jpg) no-repeat 0 0;
+			background-size:120px 200px;
+		} 
+		.wrap form input{
+			float:left;
+			border:1px solid #ccc;
+			outline:none;
+			width: 210px;
+			padding-left:28px;
+			height:200px;
+			font:bold 50px/200px "黑体";
+		}
+		.time{
+			height: 200px;
+		}
+		.time span{
+			float:left;
+			width: 200px;
+			height: 200px;
+			font:bold 50px/200px "黑体";
+			text-align:center;
+		}
+		.time span b{
+			float:left;
+			width: 100px;
+		}
+		.interval{
+			height: 200px;
+		}
+		.interval img{
+			display:block;
+			float:left;
+			width:120px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<form action="#" method="post" id="form">
+			<input type="text" class="inp1">
+			<span class="dd"></span>
+			<input type="text" class="inp2">
+		</form>
+		<div class="time">
+			<span class="minutes">
+				<b class="first">0</b>
+				<b class="last">0</b>
+			</span>
+			<span class="span2">:</span>
+			<span class="seconds">
+				<b class="first">0</b>
+				<b class="last">0</b>
+			</span>
+		</div>
+		<div class="interval">
+			<img src="0.jpg" alt="" class="img1">
+			<img src="0.jpg" alt="" class="img2">
+			<span class="dd"></span>
+			<img src="0.jpg" alt="" class="img3">
+			<img src="0.jpg" alt="" class="img4">
+		</div>
+	</div>
+</body>
+<script>
+	$("#form input").on({
+		change:function(){
+			if($(".wrap form .inp1").val()&&$(".wrap form .inp2").val()){
+				var time=$(".wrap form .inp1").val()*60+($(".wrap form .inp2").val()-0)
+				var sj=setInterval(function(){
+					if(time!=0){
+						var fz=parseInt(time/60)
+						var ms=parseInt(time%60)
+						fz=0?0+"0":fz<10?"0"+fz:fz
+						ms=0?0+"0":ms<10?"0"+ms:ms	
+						var str=fz+""+ms
+						$.each($(".interval img"),function(index,ele){
+							console.log($($(".time b")[index]))
+							$($(".time b")[index]).html(str[index])
+							$(ele).attr("src",str[index]+".jpg")
+						})
+					}else{
+						clearInterval(sj)
+					}
+					time-=1
+				},1000);
+			}
+		}
+	})
+</script>
+</html>

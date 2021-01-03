@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex布局的自我尝试</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 600px;
+			height: 600px;
+			background:#ccc;
+			display:flex;
+			flex-direction:row;
+			justify-content:space-between;
+			flex-wrap:wrap;
+			margin:200px auto;
+		}
+		.wrap p:nth-child(2n){
+			margin-top:20px;
+			/*background:blue;*/
+		}
+		.wrap p{
+			align-items:baseline;
+			width: 20px;
+			height: 80px;
+			font:12px/12px "宋体";
+			background:pink;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p class="item1">这是标签1</p>
+		<p class="item2">这是标签2</p>
+		<p class="item3">这是标签3</p>
+	</div>
+</body>
+</html>

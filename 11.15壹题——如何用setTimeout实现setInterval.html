@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>壹题如何用setTimeout实现setInterval</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a=0
+	var b=0
+	setInterval(function(){
+		console.log("这是b的值——"+b+++""+Date())
+
+	},1000)
+	fn1()
+	var e;
+	function fn1(ele1,ele2){
+		clearTimeout(e)
+		e=setTimeout(function(){
+			console.log("这是a的值——"+a+++" "+Date())
+			fn1()
+		},1000)
+	}
+</script>
+</html>

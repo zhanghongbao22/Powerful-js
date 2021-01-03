@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ楼层的练习</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		a{
+			text-decoration:none;
+		}
+		li{
+			list-style:none;
+		}
+		.top-nav{
+			height: 600px;
+			margin-bottom:30px;
+			background:rgba(0,0,255,0.5);
+		}
+		.content-floor{
+			width: 1000px;
+			margin:0 auto 600px;
+		}
+		.content-floor>div:not(.floor-list){
+			height: 500px;
+			background:pink;
+			font:bold 100px/500px "黑体";
+			text-align:center;
+			margin-bottom:100px;
+		}
+		.content-floor .floor-list{
+			position:fixed;
+			width: 50px;
+			bottom:200px;
+			right:40px;
+		}
+		.content-floor .floor-list p{
+			border:1px solid #ccc;
+			height: 50px;
+			margin-bottom:10px;
+			text-align:center;
+			font:20px/50px "宋体";
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="top-nav">
+
+		</div>
+		<div class="content-floor">
+			<div class="floor1">这是楼层1</div>
+			<div class="floor2">这是楼层2</div>
+			<div class="floor3">这是楼层3</div>
+			<div class="floor4">这是楼层4</div>
+			<div class="floor5">这是楼层5</div>
+			<div class="floor-list">
+				<p>1</p>
+				<p>2</p>
+				<p>3</p>
+				<p>4</p>
+				<p>5</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).on({
+		scroll:function(e){
+			if($(this).scrollTop()<$(".content-floor").offset().top+$(".content-floor").outerHeight(true)){
+				var c=$(".content-floor>div:not(.floor-list)")
+				var jl=$(this).scrollTop()+$(".top-nav").outerHeight(true)
+				$.each(c,function(index,ele){
+					if($(c[c.length-1]).offset().top+$(c[c.length-1]).outerHeight()/2<jl){
+						$(".floor-list p").css("background","pink").eq(c.length-1).css("background","blue")
+					}else if($(c[index]).offset().top+$(c[index]).height()/2<jl&&$(c[index+1]).offset().top+$(c[index+1]).height()/2>jl){
+							$(".floor-list p").css("background","pink").eq(index).css("background","blue")
+					}
+				})
+			}
+		}
+	})
+	$(".floor-list p").on({
+		click:function(){
+			$("html").animate({
+				scrollTop:$(".content-floor>div:not(.floor-list)").eq($(this).index()).offset().top-200
+			},300)
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap {
+			width: 200px;
+			margin:100px auto;
+			text-align:center;
+		}
+		li{
+			list-style:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h2>我的好友</h2>
+		<ul class="list-ul">
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+		</ul>
+		<h2>我的好友</h2>
+		<ul class="list-ul">
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+		</ul>
+		<h2>我的好友</h2>
+		<ul class="list-ul">
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+		</ul>
+		<h2>我的好友</h2>
+		<ul class="list-ul">
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+			<li>好友一</li>
+		</ul>
+	</div>
+</body>
+<script>
+	//index() 如果不传选择器就找的是在所有兄弟中的下标
+	//siblings() 获得的是  所有的兄弟元素
+	$(".wrap h2").on({
+		click:function(){
+			// console.log($(this).index("h2"))
+			console.log($(this))
+			console.log($(this).index($(this).parents(".wrap").find("h2")))
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>localStorage和sessionStorage这两种本地存储</title>
+</head>
+<body>
+	
+</body>
+<script>
+localStorage.setItem("自定义","locStorage")  //设置  //同源多页面使用 永久保存 除非删除 不然就永久保存
+console.log(localStorage.getItem("自定义"))	//获取
+localStorage.removeItem("自定义") //删除一个属性
+console.log(localStorage.getItem("自定义")) //删除过后为null
+console.log(localStorage.clear()) //清空所有数据 undefined
+
+sessionStorage.setItem("sess","value") //会在页面关闭后自动销毁  只能单页面使用  和localStorage的使用一样
+console.log(sessionStorage.getItem("sess"))
+</script>
+</html>

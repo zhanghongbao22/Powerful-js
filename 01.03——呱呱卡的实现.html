@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding:0;
+				margin:0;
+			}
+			.wrap{
+				width: 600px;
+				height: 600px;
+				position:relative;
+				border:1px solid #ccc;
+				margin:200px auto;
+			}
+			img{
+				position:absolute;
+				top:0;
+				left:0;
+				width: 600px;
+				height: 600px;
+				display:block;
+				z-index:-1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<img src="http://image.biaobaiju.com/uploads/20180802/01/1533144547-HjKwoGUqyr.jpg" alt="">
+			<canvas width="600" height="600"></canvas>
+		</div>
+	</body>
+	<script>
+		var can=document.querySelector("canvas")
+		var ctx=can.getContext("2d")
+		var wrap=document.querySelector(".wrap")
+			console.log(ctx)
+				ctx.fillStyle="#888"
+				ctx.fillRect(0,0,600,600)
+			
+			// ctx.globalCompositeOperation="destination-out"
+			
+			can.onmousedown=function(e){
+				var x=e.pageX-wrap.offsetLeft
+				var y=e.pageY-wrap.offsetTop
+				console.log(x,y)
+				ctx.moveTo(x,y)
+				document.onmousemove=function(e){
+					var x=e.pageX-wrap.offsetLeft
+					var y=e.pageY-wrap.offsetTop
+					console.log(x,y)
+					ctx.lineTo(x,y)
+					ctx.lineWidth="66"
+					ctx.lineJoin="round"
+					ctx.lineCap="round"
+					ctx.strokeStyle="red"
+					ctx.stroke()
+					ctx.globalCompositeOperation="destination-out"
+				}
+			}
+			can.onmouseup=function(){
+				document.onmousemove=null
+				var num=0
+				var data=ctx.getImageData(0,0,600,600)
+				for(var i=0;i<data.data.length;i+=4){
+					if(data.data[i+3]==0){
+						num+=1
+					}
+				}
+				console.log(num/data.data.length*4)
+				if(num>=600*600*0.8){
+					ctx.clearRect(0,0,600,600)
+				}
+			}
+	</script>
+</html>

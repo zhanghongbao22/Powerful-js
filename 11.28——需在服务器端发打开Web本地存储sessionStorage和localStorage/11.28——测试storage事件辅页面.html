@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试storage事件的主页面</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+ 	<input id="data" type="text" name="data" />
+	<button id="saveBtn">save</button>
+</body>
+<script>
+	$("#saveBtn").on({
+		click:function(){
+			localStorage.setItem("value1","value2")
+		}
+	});
+	$(window).on({
+		storage:function(e){
+			console.log(localStorage)
+		}
+	})
+</script>
+</html>

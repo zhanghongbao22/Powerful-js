@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grid网格布局的实验</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		 .wrap span{
+			position:absolute;
+       }
+       .span1,.span2,.span3,.span4,.span5{
+       		width:1px;
+       		background:green;
+       		height: 100%;
+       		top:0;
+       }
+       .span1{
+      	 	left:-1px;
+       }
+        .span2{
+      	 	left:150px;
+       }
+        .span3{
+        	left:300px;
+        }
+        .span4{
+        	left:450px;
+        }
+         .span5{
+        	left:600px;
+        }
+        .span9,.span6,.span7,.span8,.span10{
+       		width:100%;
+       		background:green;
+       		height:1px;
+       		left:0;
+       }
+         .span6{
+      	 	top:-1px;
+       }
+        .span7{
+      	 	top:150px;
+       }
+        .span8{
+        	top:300px;
+        }
+         .span9{
+        	top:450px;
+        }
+        .span10{
+        	top:600px;
+        }
+		.wrap{
+			width: 600px;
+			height: 600px;
+			margin:200px auto;
+			display:grid;
+			position:relative;
+			/*background:#ccc;*/
+			grid-template-columns:repeat(4,150px);/* 定义表格的列宽，repeat表示自动填充3次200px，知道放不下更多的列*/
+			grid-template-rows:repeat(4,150px);/* 定义表格的行宽，repeat表示自动填充3次200px，知道放不下更多的行*/
+			/*grid-template-area:"a,b,c,m"  定义表格的区域
+								"d,e,f,n"
+								"g,h,i,z";*/
+			grid-auto-flow:row; /*定义项目的排列顺序，是先行后列，还是先列后行*/
+			place-items:center; /*定义网格内内容的摆放位置，缩写属性*/
+			grid-auto-column:1fr;
+		}
+		.wrap p{
+			width:100px;
+			height:100px;
+			background:pink;
+		}
+       .wrap .item1{
+		 	grid-column-start:span 2;
+		 	grid-column-end:span 2;
+		 	grid-row-start:span 2; 
+		 	grid-row-end:span 2;
+       }
+       .wrap .item2{
+       		grid-column-start:2;
+		 	grid-column-end:8;
+		 	grid-row-start:2;
+		 	grid-row-end:8;
+		 	/*grid-area:;*/
+		 	place-self:center;
+       }
+      
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<span class="span1"></span>
+		<span class="span2"></span>
+		<span class="span3"></span>
+		<span class="span4"></span>
+		<span class="span5"></span>
+		<span class="span6"></span>
+		<span class="span7"></span>
+		<span class="span8"></span>
+		<span class="span9"></span>
+		<span class="span10"></span>
+		<p class="item1">1个标签</p>
+		<p class="item2">2个标签</p>
+		<p class="item3">3个标签</p>
+		<p class="item4">4个标签</p>
+	</div>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div class="a1"></div>
+</body>
+<script>
+var a1=document.querySelector(".a1")
+
+
+function fn1(ele){
+
+		ele.addClass=function(name){
+			console.log(this)
+			this.classList.add(name)
+		},
+		ele.removeClass=function(name){
+			this.classList.remove(name)
+			return this
+		},
+		ele.hasClass=function(name){
+			this.classList.contains(name)
+			return this
+		},
+		ele.toggleClass=function(name){
+			this.classList.toggle(name)
+			return this
+		}
+	console.dir(ele)
+}
+fn1(a1).addClass("a2")
+</script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 1110px;
+			margin:20px auto;
+			overflow:hidden;
+		}
+		ul{
+			width: 1140px;
+		}
+		li{
+			float:left;
+			width: 350px;
+			height: 275px;
+			margin:15px;
+			position:relative;
+			list-style:none;
+			overflow:hidden;
+		}
+		li img{
+			width: 350px;
+			height: 275px;
+			transition:0.5s;
+		}
+		li .no{
+			position:absolute;
+			top:0;
+			left:0;
+			background:rgba(89,224,143,0.7);
+			width: 350px;
+			height: 275px;
+			opacity:0;
+			transition:0.5s;
+		}
+		.no p{
+			margin-top:80px;
+			font:20px/60px "宋体";
+			text-align:center;
+			color:#fff;
+		}
+		.no h6{
+			height: 45px;
+			background:url(1.png) no-repeat 0 0;
+		}
+		li:hover .no{
+			opacity:1;
+		}
+		li:hover img{
+			transform:scale(1.5);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li>
+				<img src="1.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+			<li>
+				<img src="2.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+			<li>
+				<img src="3.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+			<li>
+				<img src="4.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+			<li>
+				<img src="5.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+			<li>
+				<img src="6.jpg" alt="">
+				<div class="no">
+					<p>Know More About UI Design</p>
+					<h6></h6>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自我练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		li{
+			list-style:none;
+		}
+		li{
+			float:left;
+			width: 300px;
+			height: 600px;
+			overflow:hidden;
+		}
+		img{
+			width: 600px;
+			height: 600px;
+			display:block;
+		}
+		ul{
+			width: 1800px;
+			overflow:hidden;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<ul class="list">
+		<li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572184800377&di=d8b0332130ec2a2ed4fe8b3e75767fce&imgtype=0&src=http%3A%2F%2Fzmdz.com%2Fbbs%2Fincomefiles%2F20153%2F2015030450569861.jpg" alt=""></a></li>
+		<li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185604374&di=4b328ae0d61d4a6b0420eadb88130c34&imgtype=0&src=http%3A%2F%2Fimg2.ctoutiao.com%2Fuploads%2F2017%2F12%2F18%2F1513563881202162.jpg" alt=""></a></li>
+		<li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185631333&di=89bf045ba98afa8620662988f99df04b&imgtype=0&src=http%3A%2F%2Fpages.ctrip.com%2Ftour%2Fingroup1611%2F436.JPG" alt=""></a></li>
+		<li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185660678&di=6ada0b51bb60e3aed1ae18e7dbf849c5&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F95eef01f3a292df52e67511fbd315c6034a87310.jpg" alt=""></a></li>
+		<li><a href="#"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185678737&di=4ea7cb7746e5c544b374edba4edc5069&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F20167%2F20166499.jpg" alt=""></a></li>
+	</ul>
+</body>
+<script>
+	$("li").on({
+		mousemove:function(){
+			var icon=$(this).index()
+			$("li").css("width","300px").eq(icon).css("width","600px")
+		}
+	})
+</script>
+</html>

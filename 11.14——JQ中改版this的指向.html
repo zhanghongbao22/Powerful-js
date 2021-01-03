@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ中改变this的指向</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<button></button>
+	<p></p>
+</body>
+<script>
+var parent = {
+            text: "parent"
+            , show: function (c) {
+                	console.log("parent里边的"+c+this.text);
+            }
+        }
+        var child = {
+            text: "child"
+            , show: function (c) {
+           		console.log("child里边的"+c+this);
+            }
+        }
+       var show = $.proxy(parent.show,child,"哈哈哈");
+   		 show();
+   		 console.dir(show)
+   		 console.log(show)
+</script>
+</html>

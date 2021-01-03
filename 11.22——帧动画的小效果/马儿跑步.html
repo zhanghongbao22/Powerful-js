@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>马儿跑步</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 128px;
+			height: 120px;
+			background:url(timg.png) no-repeat -7px -3px;
+			margin:200px auto;
+			animation:q1 1s steps(4,end) 0ms infinite normal backwards;
+		}
+		@keyframes q1{
+			0%{background-position:-15px 0;}
+			50%{background-position:-556px 0;}
+			51%{background-position:-7px -167px;}
+			100%{background-position:-556px -167px }
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var [a,b,...c]=[1,2,3,4,5,6,7] //扩展运算符，这是c为3——7的数组
+	console.log(a,b,c)
+	var [d,e="4"]=[2]  //允许指定默认值
+
+	var {f,g}={f:5,g:5}  //对象也可以结构赋值
+	console.log(f,g)  //5 5
+
+	var h=[1,2,3,4,5,6]
+	var {length:max}=h  //能对数组和伪数组的属性进行结构,max随便写，就相当宇哥储存值得变量类似的东西
+	console.log(max)
+
+	var [a1,b1,c1,d1,e1,f1]="1 2 3 4"  //字符串也可以解构赋值，空格也会解析为一个字符串
+	console.log(a1,b1,c1,d1,e1,f1)
+
+	function fn1([a,b]){  //函数也可以解构赋值
+		console.log(a,b)
+	}
+	fn1([4,5])
+
+	// null和undefined不可以解构
+</script>
+</html>

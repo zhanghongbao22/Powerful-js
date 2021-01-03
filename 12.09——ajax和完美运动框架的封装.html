@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+</body>
+<script>
+function Move(ele,json,fn){
+	clearInterval(ele.time)
+	ele.time=setInterval(function(){
+		var onOff=true
+		for(var attr in json){
+			if(attr=="opacity"){
+				var startStyle=parseFloat(getStyle(ele,attr))*100
+			}else{
+				var startStyle=parseInt(getStyle(ele,attr))
+			}
+			var speed=(json[attr]-startStyle)/20>0?Math.ceil((json[attr]-startStyle)/20):Math.floor((json[attr]-startStyle)/20)
+			startStyle+=speed
+			if(attr=="opacity"){
+				ele.style[attr]=startStyle/100
+				ele.style.filter="alpha(opacity="+startStyle+")"
+			}else{
+				ele.style[attr]=startStyle+"px"
+			}
+			if(json[attr]!=startStyle){
+				onOff=false
+			}
+		}
+		if(onOff){
+			clearInterval(ele.time)
+			if(fn){fn()}
+		}
+	},100)
+}
+function getStyle(ele,attr){
+	return getComputedStyle(ele)[attr]||ele.currentStyle[attr]
+}
+
+function ajax(method,url,data,fn){
+	method.toLowerCase()
+	try{
+		var xhr=new XMLHttpRequest()
+	}catch(er){
+		var xhr=new ActiveXObject("Microsoft.XMLHTTP")
+	}
+	if(method=="post"){
+		xhr.open(method,url,true)
+	}else if(method=="get"&&data!=""){
+		xhr.open(method,url+"?"+data+"&t="+new Date(),true)
+	}else if(method=="get"&&data==""){
+		xhr.open(method,url+"?t="+new Date(),true)
+	}
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4&&xhr.status==200){
+			fn(xhr.responseText)
+		}
+	}
+	if(method=="post"){
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+		xhr.send(data)
+	}else{
+		xhr.send()
+	}
+
+}
+</script>
+</html>

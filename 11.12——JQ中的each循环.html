@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ中的each循环</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="list">
+		<p>这是p1</p>
+		<p>这是p2</p>
+		<p>这是p3</p>
+		<p>这是p4</p>
+		<p>这是p5</p>
+		<p>这是p6</p>
+		<p>这是p7</p>
+		<p>这是p8</p>
+		<p>这是p9</p>
+		<p>这是p10</p>
+		<p>这是p11</p>
+		<p>这是p12</p>
+		<p>这是p13</p>
+		<p>这是p14</p>
+		<p>这是p15</p>
+		<p>这是p16</p>
+		<p>这是p17</p>
+		<p>这是p18</p>
+		<p>这是p19</p>
+		<p>这是p20</p>
+	</div>
+</body>
+<script>
+// 用法：$.each()  第一个参数是循环的对象 ， 第二个参数对对象中的每一个元素 执行 function函数 ，function 的第一个参数 i 是索引，item 是 循环对象中的每一个元素
+
+			//函数中的第一个参数为 下标 第二个参数为每个元素
+		$.each($("p"),function(index,ele){//第一个参数 被循环（遍历）的对象
+	//也可用被循环的对象加下标读取每个元素
+	console.log($("p")[index])
+	console.log(ele)
+})
+</script>
+</html>

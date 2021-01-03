@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div:last-child{ /*选择父级为body的最后一个元素，如果是div就可以选到，如果不是就选不到*/
+			background:pink;
+		}
+		div:last-of-type{
+			/*选择同一父级的最后一个div元素*/
+			background:green;
+		}
+		/*与上边的同样道理*/
+		div:first-child{
+			background:pink;
+		}
+		div:first-of-type{
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+	<p>hahaha</p>
+</body>
+</html>

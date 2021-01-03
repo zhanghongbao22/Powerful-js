@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ楼层的自我练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.title{
+			height: 600px;
+			margin-bottom:100px;
+			background:green;
+		}
+		.content{
+			width: 1190px;
+			margin:0 auto;
+		}
+		.content div{
+			height: 500px;
+			background:pink;
+			margin-bottom:50px;
+			text-align:center;
+			font:50px/500px "宋体";
+		}
+		.footer{
+			height: 188px;
+			margin-top:50px;
+			background:blue;
+		}
+		.sliber{
+			position:fixed;
+			right:50px;
+			bottom:200px;
+			width: 30px;
+		}
+		.sliber p{
+			height: 30px;
+			margin-bottom:10px;
+			border:1px solid #ccc;
+			text-align:center;
+			font:20px/30px "宋体";
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="title"></div>
+		<div class="content">
+			<div class="floor1">floor1</div>
+			<div class="floor2">floor2</div>
+			<div class="floor3">floor3</div>
+			<div class="floor4">floor4</div>
+			<div class="floor5">floor5</div>
+			<div class="floor6">floor6</div>
+			<div class="floor7">floor7</div>
+			<div class="floor8">floor8</div>
+		</div>
+		<div class="footer"></div>
+		<div class="sliber">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+			<p>6</p>
+			<p>7</p>
+			<p>8</p>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).on({
+		scroll:function(){
+			var floor=$(".content div")
+			var ps=$(".sliber p")
+			var oScr=$(this).scrollTop()
+			$.each(floor,function(index,ele){
+				if(oScr>$(floor[floor.length-1]).offset().top-$(window).height()/2){
+					ps.eq(floor.length-1).css("background","pink").siblings().css("background","")
+				}else if(oScr>$(floor[index]).offset().top-$(window).height()/2&&oScr<$(floor[index+1]).offset().top-$(window).height()/2){
+					ps.eq(index).css("background","pink").siblings().css("background","")
+				}
+			})
+		}
+	})
+</script>
+</html>

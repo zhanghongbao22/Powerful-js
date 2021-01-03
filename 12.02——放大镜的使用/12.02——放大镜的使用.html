@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜的使用</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+
+		.small{
+			width: 500px;
+			height: 300px;
+			position:relative;
+			margin-left:100px;
+		}
+		.small img{
+			width: 500px;
+			height: 300px;
+			display:block;
+		}
+		.small .move{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 100px;
+			height: 100px;
+			background:#ccc;
+		}
+		.big{
+			width: 400px;
+			height: 300px;
+			position:absolute;
+			top:0;
+			left:700px;
+			overflow:hidden;
+			position:relative;
+		}
+		.bigPic{
+			position:absolute;
+			top:0;
+			left:0;
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<div class="small">
+		<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185678737&di=4ea7cb7746e5c544b374edba4edc5069&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F20167%2F20166499.jpg" alt="">
+		<div class="move"></div>
+	</div>
+	<div class="big">
+		<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185678737&di=4ea7cb7746e5c544b374edba4edc5069&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F20167%2F20166499.jpg" alt="" class="bigPic" >
+	</div>
+</body>
+<script>
+		$(".small").on({
+			mouseover:function(e){
+				$(document).on({
+					mousemove:function(e){
+						$(".move").css({
+							width:$(".small img").innerWidth()/$(".bigPic").innerWidth()*$(".small").innerWidth(),
+							height:$(".small img").innerHeight()/$(".bigPic").innerHeight()*$(".small").innerHeight(),
+						})
+						var l=e.pageX-$(".small").offset().left-$(".move").innerWidth()/2
+						var t=e.pageY-$(".small").offset().top-$(".move").innerHeight()/2
+						l=l<0?0:l>$(".small").width()-$(".move").width()?$(".small").width()-$(".move").width():l
+						t=t<0?0:t>$(".small").height()-$(".move").height()?$(".small").height()-$(".move").height():t
+						$(".move").css({
+							left:l,
+							top:t
+						})
+						// var tl=($(".bigPic").width()-$(".big").width())/($(".small").width()-$(".move").width())
+						// var ll=($(".bigPic").height()-$(".big").height())/($(".small").height()-$(".move").height())
+						$(".bigPic").css({
+							left:-l/($(".small").width()-$(".move").width())*($(".bigPic").width()-$(".big").width()),
+							top:-t/($(".small").height()-$(".move").height())*($(".bigPic").height()-$(".big").height())
+							
+						})
+					}
+				});	
+			},
+			mouseout:function(){
+				$(document).unbind()
+			}
+		});
+</script>
+</html>

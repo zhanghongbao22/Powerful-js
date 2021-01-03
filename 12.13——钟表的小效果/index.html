@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>钟表的小效果</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.clock{
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			border: 1px solid #ccc;
+			margin: 200px auto;
+			position: relative;
+		}
+		.hours{
+			position: absolute;
+			left: 50%;
+			top: 70px;
+			margin-left: -2px;
+			width: 5px;
+			height: 80px;
+			background: #000;
+			transform-origin: 50% 100%;
+		}	
+		.minutes{
+			width: 4px;
+			height: 100px;
+			position:absolute;
+			top:50px;
+			left:50%;
+			margin-left:-2px;
+			background:#000;
+			transform-origin:50% 100%;
+		}
+		.seconds{
+			width: 4px;
+			height: 120px;
+			position:absolute;
+			top:30px;
+			left:50%;
+			margin-left:-2px;
+			top:30px;
+			background:red;
+			transform-origin:50% 100%;
+		}
+		span{
+			position:absolute;
+			width: 300px;
+			font:25px/30px "宋体";
+			top:50%;
+			margin-top:-15px;
+			left:0;
+		}
+		a{
+			text-decoration:none;
+			display:block;
+			float:left;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="clock">
+		<span><a href="jsvaScript:void(0)">1</a></span>
+		<span><a href="jsvaScript:void(0)">2</a></span>
+		<span><a href="jsvaScript:void(0)">3</a></span>
+		<span><a href="jsvaScript:void(0)">4</a></span>
+		<span><a href="jsvaScript:void(0)">5</a></span>
+		<span><a href="jsvaScript:void(0)">6</a></span>
+		<span><a href="jsvaScript:void(0)">7</a></span>
+		<span><a href="jsvaScript:void(0)">8</a></span>
+		<span><a href="jsvaScript:void(0)">9</a></span>
+		<span><a href="jsvaScript:void(0)">10</a></span>
+		<span><a href="jsvaScript:void(0)">11</a></span>
+		<span><a href="jsvaScript:void(0)">12</a></span>
+		<p class="hours"></p>
+		<p class="minutes"></p>
+		<p class="seconds"></p>
+	</div>
+</body>
+<script>
+	fn()
+	function fn(){
+		setTimeout(function(){
+			var now=new Date()
+			var h=now.getHours()
+			var m=now.getMinutes()
+			var s=now.getSeconds()
+			var hours=document.querySelector(".hours")
+			var minutes=document.querySelector(".minutes")
+			var seconds=document.querySelector(".seconds")
+			hours.style.transform="rotate("+h*30+"deg)"
+			minutes.style.transform="rotate("+m*6+"deg)"
+			seconds.style.transform="rotate("+s*6+"deg)"
+			fn()
+		},1000);
+	}
+	$.each($("span"),function(index,ele){
+		$(ele).css("transform","rotate("+(120+30*index)+"deg)")
+		$($("span a")[index]).css("transform","rotate("+(-120-30*index)+"deg)")
+	})
+	
+</script>
+</html>

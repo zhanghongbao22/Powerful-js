@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bind()方法和on()方法的区别</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<ul class="list">
+		<li>我是第1个li</li>
+		<li>我是第2个li</li>
+		<li>我是第3个li</li>
+		<p>我是第1个标签</p>
+		<p>我是第2个标签</p>
+		<p>我是第3个标签</p>
+		<p>我是第4个标签</p>
+		<p>我是第5个标签</p>
+		<p>我是第6个标签</p>
+		<p>我是第7个标签</p>
+		<p>我是第8个标签</p>
+		<p>我是第9个标签</p>
+		<p>我是第10个标签</p>
+		<li>我是第4个li</li>
+		<li>我是第5个li</li>
+		<li>我是第6个li</li>
+		<li>我是第7个li</li>
+		<li>我是第8个li</li>
+		<li>我是第9个li</li>
+		<li>我是第10个li</li>
+	</ul>
+</body>
+<script>
+	// $("ul li").bind({
+	// 	click:function(){
+	// 		console.log($(this))
+	// 		for(var i=0;i<6;i++){
+	// 			$("ul").append("<li>我是第"+i+"个li</li>")
+	// 		}
+	// 	}
+	// })
+	$(".list").on({
+		click:function(){
+			console.log($(this))
+			for(var i=0;i<6;i++){
+				$("ul").append("<li>我是第"+i+"个li</li>")
+			}
+		},
+		mouseover:function(){
+			$(this).css("background","pink")
+			console.log($(this))
+		}
+	},'li,p');
+
+// function li(){
+// 	console.log("哈哈哈")
+// }
+</script>
+</html>

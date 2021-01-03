@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX跨域的课堂练习</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+ $.ajax({
+ 	method:"get",
+ 	url:"http://suggestion.baidu.com/su",
+ 	dataType:"jsonp",
+ 	jsonpCallback:"fn",
+ 	data:{wd:"特朗普",cb:"fn"},
+ 	success:function(e){
+ 		console.log(e)
+ 	},
+ 	error:function(err){
+ 		console.log(err)
+ 	}
+ });
+</script>
+</html>

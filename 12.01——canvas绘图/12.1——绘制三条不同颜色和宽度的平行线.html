@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		canvas{
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="600"></canvas>	
+</body>
+<script>
+
+	var mycanvas=document.querySelector("canvas")
+
+	var ctx=mycanvas.getContext("2d")
+	// 画平行线
+	// 蓝色
+	ctx.beginPath()  //开启新的路径
+	ctx.moveTo(100,99.5) 
+	ctx.lineTo(200,100)
+	ctx.strokeStyle="blue"  //设置描边的颜色
+	ctx.lineWidth="10"		//设置描边的宽度
+	ctx.stroke()
+	ctx.beginPath()  //开启新的路径
+	// 绿色
+	ctx.moveTo(100,200)
+	ctx.lineTo(300,200)
+	ctx.strokeStyle="green"  //设置描边的颜色
+	ctx.lineWidth="20"		//设置描边的宽度
+	ctx.stroke()
+	ctx.beginPath()  //开启新的路径
+	// 粉色
+	ctx.moveTo(100,300)
+	ctx.lineTo(400,300)
+	ctx.strokeStyle="pink"  //设置描边的颜色
+	ctx.lineWidth="30"		//设置描边的宽度
+	ctx.stroke()
+
+	//开启新的路径可以解决样式会覆盖的问题
+</script>
+</html>

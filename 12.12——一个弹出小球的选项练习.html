@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.list{
+			width: 50px;
+			height: 50px;
+			position:relative;
+			border-radius:50%;
+			background:#ccc;
+			margin:200px auto;
+		}
+		.list::after{
+			content:"关";
+			position:absolute;
+			top:0;
+			left:0;
+			width: 50px;
+			height: 50px;
+			border-radius:50%;
+			font:20px/50px "宋体";
+			text-align:center;
+			background:pink;
+		}
+		.list:hover.list::after{
+			transition:1s;     
+			transform:rotate(360deg);
+			content:"开";  
+
+		}
+		ul:hover li:nth-child(1){
+			top:-50px;
+			left:10px;
+			transition:0.5s;
+		}
+		ul:hover li:nth-child(2){
+			top:-30px;
+			left:-20px;
+			transition:0.6s;
+		}
+		ul:hover li:nth-child(3){
+			top:10px;
+			left:-40px;
+			transition:0.7s;
+		}
+		ul li{
+			list-style:none;
+			width: 30px;
+			height: 30px;
+			background:blue;
+			border-radius:50%;
+			position:absolute;
+			top:10px;
+			left:10px;
+			z-index:0;
+			font:20px/30px "宋体";
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

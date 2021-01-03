@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ各种方法和选择器的汇总</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<pre>
+		伪类选择器		一个元素后边加空格在加选择器，选择后代	
+					一个元素后边跟选择器则在这个元素里边找	
+			:even		选中下标为偶数的li	
+			:odd		选中所有下标为偶数的li	
+			:empty		所有li的内容为空的  的所有标签	
+			:not(.lis)		所有li中 不含有 lis 的所有标签（除了）	
+			:gt(4)		所有li的下标大于4 的所有标签	
+			:lt(3)		所有li的下标为 小于3 的所有标签	
+			 :first		获取ul里第一个li标签	
+			:last		获取ul里最后一个li标签	
+			:eq(0)		获取ul里下标为0 的li标签	
+			:contains( text )		选中包含有文本内容 为 text 的元素	
+			:has(.min)		选取 包含类名 .min的 标签	
+			:parent		选中 含有 子元素或者文本  的标签	
+			:hidden  		选择不可见的元素	
+			:visible  		 选择 可见的元素	
+			:button		获取类型为button 的标签	
+			:checkbox，:radio，:checked，:selected		获取所有表单控件的选择器	
+			后代选择器			
+						
+			div  span		选择到 div 后代元素中的所有 span	
+			box > ul		到#box里的直接子集 ul	
+			find()		从#box子元素里查	find() 查找，找到，发现
+			children()		从直接子元素里查找指定标签不写选择器就获取所有的直接子元素	
+			属性选择器			
+						
+			div[class='box']		选中div中属性名为box的元素	
+			div[class != 'a'] 		选中div中指定属性开头不是指定值的元素	
+			div[class ^= 'b']		选中div中指定属性开头为指定值的元素	
+			$("div[class$='b']")		选中div中指定属性结尾为指定值的元素	
+			('div[title*=test]')		选取属性指定属性含有特定值的div元素	
+			子元素选择器			
+						
+			:nth-child(even)		选取父元素中 下标为偶数的元素	
+			:nth-child(odd)		选取父元素中 下标为奇数的元素	
+			:nth-child(2)		选取父元素中序号为 2 的元素(序号从1开始)	
+			:nth-child(2n)		选取父元素中序号为2倍数子元素(n从1开始)	
+			:nth-child(2n+1)		取父元素中 序号为 2n+1  子元素	
+			:last-child		选取ul 中 最后 一个 子元素	
+			:first-child		选取ul 中第一个 子元素	
+			:only-child		选取ul 中 唯一的 子元素	
+			表单中的选择器			
+						
+			:input		选取所有input、textarea、button、元素	
+			:text		选取表单元素 文本输入框	
+			:password		选取所有表单元素  密码框	
+			:radio		"选取所有的单选框
+			"	
+			:checkbox		选取所有的复选框控件	
+			:submit 		"选取所有的提交按钮
+			"	
+			:reset		选取所有的  重置按钮	
+			:button		选取所有的按钮	
+			JQ中的方法			
+						
+						
+			html()		获取 和 设置   jQ对象的 html内容	不传参数，清空所有
+			text( ) 		获取 和 设置   jQ对象的 文本 内容	
+			val( )		获取 和设置表单控件的value值	
+			attr()		获取设置html标签属性,input的checked除外,传JSON对象设置多个	
+			removeAttr()		移除某个对象的属性的方法	
+						
+			class属性的操作		都可设置多个，空格隔开	
+						
+			addClass("样式名")		添加样式名（class名）	
+			removeClass("样式名")		删除指定样式名，不传参数删除全部	
+			.hasClass()		当前对象时候包含某个class名，返布尔值	
+			.toggleClass(“样式名”)		有  则删除，没有则添加	
+			节点遍历的方法			
+						
+			.find( “选择器”)		从#box后代元素里查找的方法	
+			children()选择器		查找直接子元素标签，不传参数，获取所有	
+			first()		返回匹配的第一个元素的方法	
+			last()		返回匹配的最后一个元素的方法	
+			has()		筛选出包含特定后代的元素的方法	
+			eq(“索引值”)		选中指定下标元素的方法	
+			filter(“选择器”)		选出符合指定表达式的元素	过滤器 滤波器
+			not(“选择器”)		从匹配元素中删除符合指定表达式的元素，返回删除后的元素	
+			.parent()		返回元素的直接父节点	
+			parents()		返回元素的所有祖先元素	
+			siblings（）		获取同胞元素，传参数获取指定元素同胞元素	
+			next（）		获取下一个同胞元素	
+			nextAll（）		获取元素后面所有紧随的同胞	
+			prev（）		获取元素上一个同胞元素	
+			prevAll（）		获取元素前面所有紧随的同胞	
+			$().nextUntil(selector)	按太欧	介于两个节点之间的所有节点（向下找）	
+			$().prevUntil(selector)	按太欧	介于两个节点之间的所有节点（向上找）	
+			is()		判断当前jQuery对象所匹配的元素是否符合指定的表达式。只要其中有至少一个元素符合该表达式就返回true，否则返回false	
+						
+			JQ中的DOM操作创建，添加删除			
+						
+						
+			append（）		在元素的末尾追加元素（最后一个子节点）	多个，空格
+			prepend（）		在元素开始的时候追加元素（第一个子节点）	
+			after（）		在元素之后添加元素（添加兄弟）	
+			before()		在元素之前添加元素（添加兄弟）	
+			appendTo()		元素直接加到父级元素，成为最后子元素	
+			"prependTo()
+			"		元素直接加到父级元素，成为开始子元素	
+			wrap()		给一个元素添加父级元素	
+			empty() 		给元素设置为空，移除所有的元素	
+			remove()		删除元素，谁调用就删除谁	
+			$(“选择器”).index( )		查找元素在所有兄弟里的下标	
+			$(“选择器”).index(选择器）		查找元素在 指定兄弟 里的下标	
+	</pre>
+</body>
+<script>
+		伪类选择器		一个元素后边加空格在加选择器，选择后代	
+					一个元素后边跟选择器则在这个元素里边找	
+			:even		选中下标为偶数的li	
+			:odd		选中所有下标为偶数的li	
+			:empty		所有li的内容为空的  的所有标签	
+			:not(.lis)		所有li中 不含有 lis 的所有标签（除了）	
+			:gt(4)		所有li的下标大于4 的所有标签	
+			:lt(3)		所有li的下标为 小于3 的所有标签	
+			 :first		获取ul里第一个li标签	
+			:last		获取ul里最后一个li标签	
+			:eq(0)		获取ul里下标为0 的li标签	
+			:contains( text )		选中包含有文本内容 为 text 的元素	
+			:has(.min)		选取 包含类名 .min的 标签	
+			:parent		选中 含有 子元素或者文本  的标签	
+			:hidden  		选择不可见的元素	
+			:visible  		 选择 可见的元素	
+			:button		获取类型为button 的标签	
+			:checkbox，:radio，:checked，:selected		获取所有表单控件的选择器	
+			后代选择器			
+						
+			div  span		选择到 div 后代元素中的所有 span	
+			box > ul		到#box里的直接子集 ul	
+			find()		从#box子元素里查	find() 查找，找到，发现
+			children()		从直接子元素里查找指定标签不写选择器就获取所有的直接子元素	
+			属性选择器			
+						
+			div[class='box']		选中div中属性名为box的元素	
+			div[class != 'a'] 		选中div中指定属性开头不是指定值的元素	
+			div[class ^= 'b']		选中div中指定属性开头为指定值的元素	
+			$("div[class$='b']")		选中div中指定属性结尾为指定值的元素	
+			('div[title*=test]')		选取属性指定属性含有特定值的div元素	
+			子元素选择器			
+						
+			:nth-child(even)		选取父元素中 下标为偶数的元素	
+			:nth-child(odd)		选取父元素中 下标为奇数的元素	
+			:nth-child(2)		选取父元素中序号为 2 的元素(序号从1开始)	
+			:nth-child(2n)		选取父元素中序号为2倍数子元素(n从1开始)	
+			:nth-child(2n+1)		取父元素中 序号为 2n+1  子元素	
+			:last-child		选取ul 中 最后 一个 子元素	
+			:first-child		选取ul 中第一个 子元素	
+			:only-child		选取ul 中 唯一的 子元素	
+			表单中的选择器			
+						
+			:input		选取所有<input><textarea><button> 元素	
+			:text		选取表单元素 文本输入框	
+			:password		选取所有表单元素  密码框	
+			:radio		"选取所有的单选框
+			"	
+			:checkbox		选取所有的复选框控件	
+			:submit 		"选取所有的提交按钮
+			"	
+			:reset		选取所有的  重置按钮	
+			:button		选取所有的按钮	
+			JQ中的方法			
+						
+						
+			html()		获取 和 设置   jQ对象的 html内容	不传参数，清空所有
+			text( ) 		获取 和 设置   jQ对象的 文本 内容	
+			val( )		获取 和设置表单控件的value值	
+			attr()		获取设置html标签属性,input的checked除外,传JSON对象设置多个	
+			removeAttr()		移除某个对象的属性的方法	
+						
+			class属性的操作		都可设置多个，空格隔开	
+						
+			addClass("样式名")		添加样式名（class名）	
+			removeClass("样式名")		删除指定样式名，不传参数删除全部	
+			.hasClass()		当前对象时候包含某个class名，返布尔值	
+			.toggleClass(“样式名”)		有  则删除，没有则添加	
+			节点遍历的方法			
+						
+			.find( “选择器”)		从#box后代元素里查找的方法	
+			children()选择器		查找直接子元素标签，不传参数，获取所有	
+			first()		返回匹配的第一个元素的方法	
+			last()		返回匹配的最后一个元素的方法	
+			has()		筛选出包含特定后代的元素的方法	
+			eq(“索引值”)		选中指定下标元素的方法	
+			filter(“选择器”)		选出符合指定表达式的元素	过滤器 滤波器
+			not(“选择器”)		从匹配元素中删除符合指定表达式的元素，返回删除后的元素	
+			.parent()		返回元素的直接父节点	
+			parents()		返回元素的所有祖先元素	
+			siblings（）		获取同胞元素，传参数获取指定元素同胞元素	
+			next（）		获取下一个同胞元素	
+			nextAll（）		获取元素后面所有紧随的同胞	
+			prev（）		获取元素上一个同胞元素	
+			prevAll（）		获取元素前面所有紧随的同胞	
+			$().nextUntil(selector)	按太欧	介于两个节点之间的所有节点（向下找）	
+			$().prevUntil(selector)	按太欧	介于两个节点之间的所有节点（向上找）	
+			is()		判断当前jQuery对象所匹配的元素是否符合指定的表达式。只要其中有至少一个元素符合该表达式就返回true，否则返回false	
+						
+			JQ中的DOM操作创建，添加删除			
+						
+						
+			append（）		在元素的末尾追加元素（最后一个子节点）	多个，空格
+			prepend（）		在元素开始的时候追加元素（第一个子节点）	
+			after（）		在元素之后添加元素（添加兄弟）	
+			before()		在元素之前添加元素（添加兄弟）	
+			appendTo()		元素直接加到父级元素，成为最后子元素	
+			"prependTo()
+			"		元素直接加到父级元素，成为开始子元素	
+			wrap()		给一个元素添加父级元素	
+			empty() 		给元素设置为空，移除所有的元素	
+			remove()		删除元素，谁调用就删除谁	
+			$(“选择器”).index( )		查找元素在所有兄弟里的下标	
+			$(“选择器”).index(选择器）		查找元素在 指定兄弟 里的下标	
+
+</script>
+</html>

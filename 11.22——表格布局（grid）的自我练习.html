@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grid布局的自我练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 600px;
+			height: 600px;
+			display:grid;
+			margin:200px auto;
+			background:#ccc;
+			grid-template-columns:repeat(3,[col-start] 180px [col-end]);
+			grid-template-rows:repeat(3,[row-start] 180px [row-start]);
+			/*gap:20px;*/
+			grid-auto-flow:column;
+			place-items:stretch; /*不设置宽高，或者只设置其中一个时候有效*/
+			place-content:center;
+			/*gird-auto-columns:200px;*/
+			gird-auto-rows:200px;
+		}
+		.wrap p{
+			/*width: 100px;
+			height: 100px;*/
+			background:pink;	
+		}
+		.wrap .item1{
+			grid-column:2/span 2;
+			grid-row:2/span 2;
+			/*grid-area:1/6/6/1;*/
+			place-self:center;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p class="item1">这是p1</p>
+		<p class="item2">这是p2</p>
+		<p class="item3">这是p2</p>
+	</div>
+</body>
+</html>

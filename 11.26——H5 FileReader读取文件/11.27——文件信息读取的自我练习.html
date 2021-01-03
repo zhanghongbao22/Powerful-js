@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件信息读取的自我练习</title>
+</head>
+<body>
+	<input type="file" class="inp">
+</body>
+<script>
+	var inp=document.querySelector(".inp")
+	inp.oninput=function(){
+		var reader=new FileReader()
+		reader.readAsDataURL(inp.files[0])
+		reader.onload=function(e){
+			console.log(reader.result)
+		}
+	}
+</script>
+</html>

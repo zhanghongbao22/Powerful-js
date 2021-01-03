@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变this指向的四种方法</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	
+</body>
+<script>
+	// 1.call()
+	function fn1(c){
+		console.log("fn1中的this是——"+this+"——"+c)
+	}
+	function fn2(b,a,c){
+		console.log("fn2中的this是——"+this+"——"+b)
+		al=function(){
+			console.log(1)
+		}
+		bl=function(){
+			console.log(2)
+		}
+	}
+	//fn1.call(fn2,[11])  //会直接调用函数 
+	//apply 调用一个对象的一个方法，用另一个对象替换档期啊对象 例如:B.apply(A,arguments) 即A对象调用b对象的方法 传的参数是给B对象的
+	//call 和apply的使用方法差不多 知识参数的传递方式不同  apply只能传递两个参数 指向的新的this对象 数组，参数保存在数组中
+	//														 apply只能传递多个参数 指向的新的this对象 参数1，参数2......
+	//bind() 的使用
+	console.dir(fn2)
+	
+	
+
+</script>
+</html>

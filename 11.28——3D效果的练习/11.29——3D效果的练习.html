@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D效果的练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 200px;
+			height: 200px;
+			margin:200px auto;
+			transform:rotate3d(20,10,1,50deg);
+			transform-style:preserve-3d;
+			position:relative;
+			perspective:500px;
+			perspective-origin:center center; 
+		}
+		.wrap div{
+			width: 200px;
+			height: 200px;
+			position:absolute;
+			top:0;
+			left:0;
+			background:blue;
+			
+		}
+		.wrap .div1{
+			background:pink;
+			transform:translate3d(0,100px,0) rotateX(-90deg);
+		}
+		.wrap .div2{
+			background:blue;
+			transform:translate3d(0,-100px,0) rotateX(90deg);
+		}
+		.wrap .div3{
+			background:red;
+			transform:translate3d(-100px,0,0) rotateY(90deg);
+		}
+		.wrap .div4{
+			background:green;
+			transform:translate3d(100px,0,0) rotateY(-90deg);
+		}
+		.wrap .div5{
+			background:yellow;
+			transform:translate3d(0,0,-100px) rotateZ(-90deg);
+		}
+		.wrap .div6{
+			background:#000;
+			transform:translate3d(0,0,100px) rotateZ(-90deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+		<div class="div4">4</div>
+		<div class="div5">5</div>
+		<div class="div6">6</div>
+	</div>
+</body>
+</html>

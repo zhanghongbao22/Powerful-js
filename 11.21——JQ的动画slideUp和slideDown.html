@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ中的slideUp动画和slideDown动画</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 200px;
+			height: 600px;
+			background:pink;
+			margin:200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+
+	</div>
+</body>
+<script>
+$(".wrap").slideUp(3000,function(){
+	$(this).slideDown(3000)
+})
+</script>
+</html>

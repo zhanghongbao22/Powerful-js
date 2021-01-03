@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>decodeURIComponent</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+location.search  //"?code=20180711%23abc"
+
+var b = encodeURI("?code=20180711%23abc")  //"?code=20180711#abc"
+console.log(b)
+var c=decodeURIComponent(b)
+
+console.log(c)
+
+
+// encodeURI 和 decodeURI  是一个完整的转码 解码的组合
+// encodeURIComponent 和 decodeURIComponent  是一个完整的转码 解码的组合  在游览器中 多使用 这个
+// 
+// 编码解码问题。
+/*
+解决这个问题大家一般都使用encodeURI或者encodeURIComponent方法，在这里做一下总结：
+首先看看各个方法不同浏览器的支持程度
+总结一下：
+1.encodeURI()，和encodeURIComponent()是对字符进行编码。
+2.decodeURI()，和decodeURIComponent()是对相应编码过的字符进行解码。
+3.encodeURI 方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ' ( ) 。
+该方法的目的是对 URI 进行完整的编码，因此对以下在 URI 中具有特殊含义的 ASCII 标点符号，encodeURI() 函数是不会进行转义的：;/?:@&=+$,#
+进行url跳转时可以整体使用encodeURI
+例如：Location.href=encodeURI(http://cang.baidu.com/do/s?word=百度&ct=21);
+4.encodeURIComponent()方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ' ( ) 。
+其他字符（比如 ：;/?:@&=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。
+传递参数时需要使用encodeURIComponent，这样组合的url才不会被#等特殊字符截断。                            
+例如：<script language="javascript">document.write('<a href="http://passport.baidu.com/?logout&aid=7&u='+encodeURIComponent ("http://cang.baidu.com/bruce42")+'">退出</a>');/script
+5.形象的解释，encodeURI对全角日韩汉字其作用。对URL中的特殊字符不做处理，.encodeURIComponent()对url中的特殊字符做出来，将他们转化成对应的ASCII码
+6.这些方法都是JavaScript 函数，也就是只能够在JavaScript中使用。
+7.在service端解码，不使用decodeURI()和decodeURIComponent()的，可以使用fw = new String(fw.getBytes("ISO-8859-1"), "UTF-8");java语法，其他语言略有不同。
+8.encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z
+9.encodeURIComponent不编码字符有71个：!， '，(，)，*，-，.，_，~，0-9，a-z，A-Z
+ 
+扩展：
+尽量避免使用escape()和unescape()方法。
+escape 方法
+escape对0-255以外的unicode值进行编码时输出%u****格式，其它情况下escape，encodeURI，encodeURIComponent编码结果相同。
+escape不编码字符有69个：*，+，-，.，/，@，_，0-9，a-z，A-Z
+最多使用的应为encodeURIComponent，它是将中文、韩文等特殊字符转换成utf-8格式的url编码，所以如果给后台传递参数需要使用encodeURIComponent时需要后台解码对utf-8支持（form中的编码方式和当前页面编码方式相同）
+unescape 方法
+从用 escape 方法编码的 String 对象中返回已解码的字符串。
+function unescape(charString : String) : String
+
+    参数
+charString
+必选。要解码的 String 对象或文本。
+备注
+unescape 方法返回一个包含 charstring 内容的字符串值。所有以 %xx 十六进制形式编码的字符都用 ASCII 字符集当中等效的字符代替。以 %uxxxx 格式（Unicode 字符）编码的字符用十六进制编码 xxxx 的 Unicode 字符代替。注意 unescape 方法不应用于解码“统一资源标识符”(URI)。请改用 decodeURI 和 decodeURIComponent 方法。
+ 
+decodeURI 方法
+返回一个已编码的统一资源标识符 (URI) 的非编码形式。
+function decodeURI(URIstring : String) : String
+参数
+URIstring
+必选。表示编码 URI 的字符串。
+备注
+使用 decodeURI 方法代替已经过时的 unescape 方法。
+decodeURI 方法返回一个字符串值。
+如果 URIString 无效，将发生 URIError。
+ 
+decodeURIComponent 方法
+返回统一资源标识符 (URI) 的一个已编码组件的非编码形式。
+function decodeURIComponent(encodedURIString : String) : String
+必选的 encodedURIString 参数是一个表示已编码的 URI 组件的值。
+备注
+URIComponent 是一个完整的 URI 的一部分
+*/
+</script>
+</html>

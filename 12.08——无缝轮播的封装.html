@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝轮播的封装</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.div1{
+			width: 200px;
+			height: 200px;
+			background:blue;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+</body>
+<script>
+var div=document.querySelector(".div1")
+	 perfectMove(div,{left:500,top:500},function(){
+	 	perfectMove(div,{left:200,top:200})
+	 })
+function perfectMove(ele,json,fn){
+	clearInterval(ele.time)
+	ele.time=setInterval(function(){
+		var onOff=true
+		for(var attr in json){
+			if(attr=="opacity"){
+				var startStyle=parseFloat(getStyle(ele,attr))*100
+			}else{
+				var startStyle=parseInt(getStyle(ele,attr))
+			}
+			var speed=(json[attr]-startStyle)/20>0?Math.ceil((json[attr]-startStyle)/20):Math.floor((json[attr]-startStyle)/20)
+			startStyle+=speed
+			if(attr=="opacity"){
+				ele.style[attr]=startStyle/100
+				ele.style.fliter="alpha(opacity="+startStyle+")"
+			}else{
+				ele.style[attr]=startStyle+"px"
+			}
+			if(startStyle!=json[attr]){
+				onOff=false
+			}
+		}
+		if(onOff){
+				clearInterval(ele.time)
+				console.log(startStyle+=speed)
+				if(fn){
+					fn()
+				}
+			}
+
+	},10)
+
+}
+function getStyle(ele,attr){
+	console.log(getComputedStyle(ele)[attr])
+	return getComputedStyle(ele)[attr]||ele.currentStyle[attr]
+}
+</script>
+</html>

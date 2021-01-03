@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>纯css3鼠标悬停放大图片两边模糊效果</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 912px;
+			margin:200px auto;
+			background:#d8f0ea;
+			text-align:center;
+		}
+		h3{
+			font:35px/70px "宋体";
+		}
+		.wrap>p{
+			font:17px/35px "宋体";
+		}
+		ul{
+			height: 660px;
+			margin-top:20px;
+		}
+		ul li{
+			float:left;
+			width: 240px;
+			padding:0 32px;
+			list-style:none;
+		}
+		ul li div{
+			width: 100%;
+			float:left;
+			background:#fff;
+		}
+		ul li div p:nth-child(1){
+			font:12px/40px "宋体";
+		}
+		ul li div img{
+			width: 180px;
+			display:block;
+			margin:0 auto 10px;
+		}
+		ul li div :last-child{
+			font:12px/16px "宋体";
+			padding:0 41px;
+			height:0;
+			margin-bottom:20px;
+			overflow:hidden;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<h3>Gallary of products</h3>
+		<p>Hover one of the products</p>
+		<ul class="list">
+			<li>
+				<div>
+					<p>T-shift</p>
+					<img src="shirts.jpg" alt="">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>T-shift</p>
+					<img src="shirts.jpg" alt="">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</li>
+			<li>
+				<div>
+					<p>T-shift</p>
+					<img src="shirts.jpg" alt="">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	$(".list li").hover(function(){
+		$(this).animate({height:"402px",marginTop:"-20px"},500).siblings().css("filter","blur(20px)")
+		$(this).find("p:last-child").animate({height:"60px"},500)
+	},function(){
+		$(this).animate({height:" 240px",marginTop:"0px"},500).siblings().css("filter","blur(0)")
+		$(this).find("p:last-child").animate({height:"0px"},500)
+	})
+</script>
+</html>

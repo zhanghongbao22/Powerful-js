@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3动画</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			height: 2000px;
+		}
+		div{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 200px;
+			height: 200px;
+			background:pink;
+			animation: myAnimation 5s  0s 1 alternate backwards;
+		}
+		@keyframes myAnimation
+		{
+			5% {background:#000;left:200px;top:50px;}
+			25%{background:blue;left:400px;top:0;}
+			50%{background:green;left:600px;top:50px;}
+			100%{background:yellow;left:800px;top:200px;}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+	var div=document.querySelector("div")
+	console.log(div)
+	window.onclick=function(){
+		div.style.animationPlayState="paused"
+	}
+</script>
+</html>

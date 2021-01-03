@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航条底部线条点击高亮</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		
+		.list{
+			width: 520px;
+			height: 61px;
+			padding:0 27px;
+			margin:200px auto;
+			border-radius:590px/530px;
+			box-shadow:0px 0px 20px #ccc inset;
+			overflow:hidden;
+			position:relative;
+		}
+		.list li {
+			list-style:none;
+			float:left;
+			font:18px/61px "宋体";
+			padding:0 20px;
+		/*	position:relative;*/
+		}
+		a{
+			text-decoration:none;
+		}
+		.list li b{
+			width:0px;
+			height: 10px;
+			position:absolute;
+			bottom:-5px;
+			left:0;
+			border-radius:100%/119px;
+			background:rgba(12,167,82,1);
+		}
+		/*.list li:hover b{
+			
+			transition:0.5s;
+		}*/
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<ul class="list">
+		<li><a href="#">首页<b></b></a></li>
+		<li><a href="#">关于我们</a></li>
+		<li><a href="#">公司简介</a></li>
+		<li><a href="#">大头网</a></li>
+		<li><a href="#">联系我们</a></li>
+	</ul>
+</body>
+<script>
+	$("li").on({
+		click:function(){
+			$(".list li b").css("background","rgba("+Math.ceil(Math.random()*(250-1)+1)+","+Math.ceil(Math.random()*(250-1)+1)+","+Math.ceil(Math.random()*(250-1)+1)+","+1+")").animate({
+				"width":$(this).innerWidth(),
+				"left":$(this).position().left,
+			},500)
+		}
+	})
+	$($("li")[0]).click()
+</script>
+</html>

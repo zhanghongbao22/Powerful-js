@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d效果的小练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		li{
+			list-style:none;
+		}
+		.list{
+			width: 200px;
+			height: 200px;
+			position:relative;
+			transform-style:preserve-3d;
+			perspective-origin:50px 60px;
+			margin:200px auto;
+			transform:rotate3d(20,10,1,50deg);
+			text-align:center;
+			line-height:200px;
+		}
+		.list li{
+			position:absolute;
+			top:0;
+			left:0;
+			width:198px;
+			height:198px;
+			border:1px solid #ccc;
+
+		}
+		.list li:nth-child(1){
+			background:#ccc;
+			transform:translate3d(0,0,-100px) rotateZ(180deg);
+			
+		}
+		.list li:nth-child(2){
+			background:green;
+			transform:translate3d(0,0,100px) rotateZ(-180deg);
+			
+		}
+		.list li:nth-child(3){
+			background:pink;
+			transform:translate3d(0,100px,0) rotateX(-90deg);
+		}
+		.list li:nth-child(4){
+			background:blue;
+			transform:translate3d(0,-100px,0) rotateX(90deg);
+		}
+		.list li:nth-child(5){
+			background:yellow;
+			transform:translate3d(-100px,0,0) rotateY(-90deg);
+		}
+		.list li:nth-child(6){
+			background:#000;
+			transform:translate3d(100px,0,0) rotateY(90deg);
+		}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>这是一个li</li>
+		<li>这是一个li</li>
+		<li>这是一个li</li>
+		<li>这是一个li</li>
+		<li>这是一个li</li>
+		<li>这是一个li</li>
+	</ul>
+</body>
+</html>

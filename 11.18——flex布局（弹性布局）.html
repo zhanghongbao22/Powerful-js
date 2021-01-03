@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fnex布局</title>
+</head>
+<body>
+	<div class="wrap">
+		<p>1</p>
+		<p>2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+		<p>6</p>
+		<p>7</p>
+		<p>8</p>
+		<p>9</p>
+		<p>10</p>
+		<p>11</p>
+		<p>12</p>
+		<p>13</p>
+		<p>14</p>
+		<p>15</p>
+		<p>16</p>
+		<p>17</p>
+		<p>18</p>
+		<p>19</p>
+		<p>20</p>
+		<p>21</p>
+		<p>22</p>
+		<p>23</p>
+		<p>24</p>
+		<p>25</p>
+		<p>26</p>
+		<p>27</p>
+		<p>28</p>
+		<p>29</p>
+		<p>30</p>
+		<p>31</p>
+		<p>32</p>
+		<p>33</p>
+		<p>34</p>
+		<p>35</p>
+		<p>36</p>
+		<p>37</p>
+		<p>38</p>
+		<p>39</p>
+		<p>40</p>
+		<p>41</p>
+		<p>42</p>
+		<p>43</p>
+		<p>44</p>
+		<p>45</p>
+	</div>
+</body>
+<style>
+	*{
+		padding:0;
+		margin:0;
+	}
+	.wrap{/*采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。*/
+		display:flex;
+		margin:400px auto;
+		width:400px;
+		height:400px;
+		display:-webkit-flex;
+		flex-direction:row;
+		flex-wrap:wrap-reverse;
+		align-content:flex-start
+
+		/*以下6个属性设置在容器上。*/
+		/*flex-direction 	属性决定主轴的方向（即项目的排列方向）*/
+					/*row（默认值）：主轴为水平方向，起点在左端。
+					row-reverse：主轴为水平方向，起点在右端。
+					column：主轴为垂直方向，起点在上沿。
+					column-reverse：主轴为垂直方向，起点在下沿。*/
+
+
+		/*flex-wrap 属性定义，如果一条轴线排不下，如何换行*/
+						/*nowrap（默认）：不换行。
+						wrap：换行，第一行在上方。
+						wrap-reverse：换行，第一行在下方。*/
+
+		/*flex-flow 	flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。*/
+
+		/*justify-content  justify-content属性定义了项目在主轴上的对齐方式。*/
+/*
+							flex-start（默认值）：左对齐
+							flex-end：右对齐
+							center： 居中
+							space-between：两端对齐，项目之间的间隔都相等。
+							space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。*/
+
+		/*align-items  属性定义项目在交叉轴上如何对齐。*/
+							/*flex-start：交叉轴的起点对齐。
+							flex-end：交叉轴的终点对齐。
+							center：交叉轴的中点对齐。
+							baseline: 项目的第一行文字的基线对齐。
+							stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。*/
+
+		/*align-content  属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。*/
+						/*flex-start：与交叉轴的起点对齐。
+						flex-end：与交叉轴的终点对齐。
+						center：与交叉轴的中点对齐。
+						space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+						space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+						stretch（默认值）：轴线占满整个交叉轴。*/
+	}
+	.wrap p{
+		width: 20px;
+		height: 20px;
+		background:blue;
+		margin:10px;
+		
+	}
+</style>
+<script>
+//布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+//2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+//chrome 21+ 
+//ie 10+
+//opera 12.1+
+//safari 6.1+
+//Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
+// 任何一个容器都可以指定为 Flex 布局。
+</script>
+</html>

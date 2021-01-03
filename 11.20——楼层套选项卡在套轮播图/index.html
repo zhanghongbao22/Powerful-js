@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>楼层套选项卡在套轮播图</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="floor">
+			<div>
+				<div class="banner1">
+					
+				</div>
+			</div>
+
+		</div>
+		<div class="num">
+			<div></div>
+		</div>
+	</div>
+</body>
+<script>
+var arr=["img/1.png","img/2.png","img/3.png","img/4.png","img/5.png","img/6.png"]
+console.log($(".wrap").append("<div></div>"))
+$.each(arr,function(index,ele){
+	$(".wrap").append("")
+})
+</script>
+</html>

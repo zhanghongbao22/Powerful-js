@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡加选项卡</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			height: 500px;
+			width: 600px;
+		}
+		.list{
+			height: 100px;
+		}
+		.list span{
+			float:left;
+			width: 100px;
+			height: 100px;
+			font:20px/100px "宋体";
+			text-align:center;
+		}
+		.content{
+			width: 500px;
+			height: 500px;
+			position:relative;
+		}
+		.content>div{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 500px;
+			height: 500px;
+			text-align:center;
+			font:50px/50px "宋体";
+			text-align:center;
+			display:none;
+		}
+		.content-list div{
+			height: 100px;
+		}
+		.content-list  p{
+			float:left;
+			width: 100px;
+			height: 100px;
+			font:20px/100px "宋体";
+			text-align:center;
+		}
+		.content ul{
+			position:absolute;
+			top:100px;
+			left:0;
+			width: 400px;
+			height: 500px;
+			background:#fff;
+		}
+		.content ul li{
+			position:absolute;
+			top:100px;
+			left:0;
+			width: 400px;
+			height: 500px;
+			background:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="list">
+			<span>这是列表1</span>
+			<span>这是列表2</span>
+			<span>这是列表3</span>
+			<span>这是列表4</span>
+			<span>这是列表5</span>
+		</div>
+		<div class="content">
+			<div>
+				<div class="content-list">
+					<p>这是第1个</p>
+					<p>这是第2个</p>
+					<p>这是第3个</p>
+					<p>这是第4个</p>
+					<p>这是第5个</p>
+				</div>
+				<ul>
+					<li>这是盒子1的内容1</li>
+					<li>这是盒子1的内容2</li>
+					<li>这是盒子1的内容3</li>
+					<li>这是盒子1的内容4</li>
+					<li>这是盒子1的内容5</li>
+				</ul>
+			</div>
+			<div>
+				<div class="content-list">
+					<p>这是第1个</p>
+					<p>这是第2个</p>
+					<p>这是第3个</p>
+					<p>这是第4个</p>
+					<p>这是第5个</p>
+				</div>
+				<ul>
+					<li>这是盒子2的内容1</li>
+					<li>这是盒子2的内容2</li>
+					<li>这是盒子2的内容3</li>
+					<li>这是盒子2的内容4</li>
+					<li>这是盒子2的内容5</li>
+				</ul>
+			</div>
+			<div>
+				<div class="content-list">
+					<p>这是第1个</p>
+					<p>这是第2个</p>
+					<p>这是第3个</p>
+					<p>这是第4个</p>
+					<p>这是第5个</p>
+				</div>
+				<ul>
+					<li>这是盒子3的内容1</li>
+					<li>这是盒子3的内容2</li>
+					<li>这是盒子3的内容3</li>
+					<li>这是盒子3的内容4</li>
+					<li>这是盒子3的内容5</li>
+				</ul>
+			</div>
+			<div>
+				<div class="content-list">
+					<p>这是第1个</p>
+					<p>这是第2个</p>
+					<p>这是第3个</p>
+					<p>这是第4个</p>
+					<p>这是第5个</p>
+				</div>
+				<ul>
+					<li>这是盒子4的内容1</li>
+					<li>这是盒子4的内容2</li>
+					<li>这是盒子4的内容3</li>
+					<li>这是盒子4的内容4</li>
+					<li>这是盒子4的内容5</li>
+				</ul>
+			</div>
+			<div>
+				<div class="content-list">
+					<p>这是第1个</p>
+					<p>这是第2个</p>
+					<p>这是第3个</p>
+					<p>这是第4个</p>
+					<p>这是第5个</p>
+				</div>
+				<ul>
+					<li>这是盒子5的内容1</li>
+					<li>这是盒子5的内容2</li>
+					<li>这是盒子5的内容3</li>
+					<li>这是盒子5的内容4</li>
+					<li>这是盒子5的内容5</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+		$(".list span").on({
+			click:function(){
+				$(".content>div").css("display","none").eq($(this).index()).css("display","block")
+			}
+		})
+		$(".content-list p").on({
+			click:function(){
+				$(this).parent().next().children().css("display","none").eq($(this).index()).css("display","block")
+			}
+		})
+</script>
+</html>

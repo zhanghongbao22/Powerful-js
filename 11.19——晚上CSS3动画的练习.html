@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3动画的练习</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 200px;
+			height: 200px;
+			position:absolute;
+			top:0;
+			left:0;
+			background:pink;
+			animation:animate 20s  0s 1 alternate backwards;
+		}
+		@keyframes animate{
+			5%{background:blue;left:200px;top:200px;}
+			15%{background:#753;left:300px;top:400px;}
+			25%{background:#237;left:400px;top:600px;}
+			35%{background:#459;left:500px;top:800px;}
+			45%{background:#345;left:600px;top:1000px;}
+			55%{background:pink;left:700px;top:1200px;}
+			65%{background:#555;left:800px;top:1400px;}
+			75%{background:yellow;left:900px;top:1300px;}
+			85%{background:#888;left:1000px;top:1200px;}
+			95%{background:#000;left:1100px;top:10000px;}
+			100%{background:green;left:1200px;top:800px;}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>

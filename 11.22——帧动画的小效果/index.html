@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>逐帧动画</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width:98.33px;
+			height:103px;
+			background:url(http://p9.pstatp.com/large/11fe000308f3062949ae) no-repeat 0px 0;
+			margin:200px auto;
+			animation:dh 1s steps(6,end) 0ms infinite normal backwards;
+			/*animation-iteration-count: infinite;
+			overflow:hidden;*/
+		}
+		@keyframes dh{
+			0%{background-position:0 0;}
+			100%{background-position:-580px 0;}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+	</div>
+</body>
+</html>

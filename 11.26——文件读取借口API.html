@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input type="file">
+	<img src="" alt="">
+</body>
+<script>
+	var inp=document.querySelector("input")
+	var img=document.querySelector("img")
+	var p = new FileReader()
+	inp.oninput=function(e){
+		var e=e||window.event
+		var ppp=this.files[0]
+		console.log(ppp)
+		p.readAsDataURL(ppp)
+
+		p.onload=function(){
+			
+			var c=p.result
+			console.log(c)
+			img.src=c
+		}
+		
+	}
+
+</script>
+</html>

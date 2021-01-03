@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图的创建和实现</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.wrap{
+			width: 600px;
+			height: 600px;
+			position:relative;
+			margin:200px auto;
+			overflow:hidden;
+		}
+		.wrap .list{
+			width: 4200px;
+			height: 600px;
+			position:absolute;
+			top:0;
+			left:-600px;
+		}
+		.wrap .list li{
+			float:left;
+			list-style:none;
+		}
+		.wrap .list img{
+			width: 600px;
+			height: 600px;
+			display:block;
+		}
+		.wrap .disc{
+			position:absolute;
+			bottom:20px;
+			left:50%;
+			margin-left:-60px;
+		}
+		.wrap .disc span{
+			width: 20px;
+			height: 20px;
+			margin:0 2px;
+			float:left;
+			background:#fff;
+			border-radius:50%;
+		}
+		.wrap>a{
+			width: 60px;
+			height: 80px;
+			font:20px/80px "宋体";
+			background:rgba(0,0,0,0.6);
+			position:absolute;
+			top:50%;
+			margin-top:-40px;
+		}
+		.wrap .next{
+			right:0;
+		}
+		.wrap .prev{
+			left:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		
+	</div>
+</body>
+<script>
+	var json={
+		"www":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572184800377&di=d8b0332130ec2a2ed4fe8b3e75767fce&imgtype=0&src=http%3A%2F%2Fzmdz.com%2Fbbs%2Fincomefiles%2F20153%2F2015030450569861.jpg",
+		"ccc":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185604374&di=4b328ae0d61d4a6b0420eadb88130c34&imgtype=0&src=http%3A%2F%2Fimg2.ctoutiao.com%2Fuploads%2F2017%2F12%2F18%2F1513563881202162.jpg",
+		"ddd":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185631333&di=89bf045ba98afa8620662988f99df04b&imgtype=0&src=http%3A%2F%2Fpages.ctrip.com%2Ftour%2Fingroup1611%2F436.JPG",
+		"eee":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185660678&di=6ada0b51bb60e3aed1ae18e7dbf849c5&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F95eef01f3a292df52e67511fbd315c6034a87310.jpg",
+		"aaa":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572185678737&di=4ea7cb7746e5c544b374edba4edc5069&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F20167%2F20166499.jpg"
+	}
+	console.log(json)
+	var wrap=document.querySelector(".wrap")
+	CARD(wrap,json)
+	function CARD(ele,json){
+		ele.innerHTML='<ul class="list"></ul><div class="disc"></div> <a  class="prev">prev</a><a class="next">next</a>'
+		var list=ele.querySelector(".list")
+		var disc=ele.querySelector(".disc")
+		for(var i in json){
+			list.innerHTML+='<li><a href="#"><img src="'+json[i]+'" alt=""></a></li>'
+			disc.innerHTML+="<span></span>"
+		}
+		list.appendChild(list.children[0].cloneNode(true))
+		list.prepend(list.children[list.children.length-2].cloneNode(true))
+		var spans=disc.querySelectorAll("span")
+		var lis=list.querySelectorAll("li")
+		var next=ele.querySelector(".next")
+		var prev=ele.querySelector(".prev")
+		var index=1
+		var off=true
+		chong()
+		next.onclick=function(){
+			if(off){
+				index+=1
+				if(index>lis.length-2){
+					index=1
+					list.style.left="0"
+				}
+				chong()
+			}
+			off=false
+		}
+		prev.onclick=function(){
+			if(off){
+				index-=1
+				if(index<1){
+					index=lis.length-2
+					list.style.left="-3600px"
+				}
+				chong()
+			}
+			off=false
+		}
+		for(var i=0;i<spans.length;i++){
+			spans[i].cont=i
+			spans[i].onmouseover=function(){
+				index=this.cont+1
+				chong()
+			}
+		}
+		function chong(){
+			for(var i=0;i<spans.length;i++){
+				spans[i].style.background="#fff"
+			}
+			spans[index-1].style.background="pink"
+			console.log(index-1)
+			console.log(-index*lis[0].offsetWidth+"px")
+			startMove(list,{"left":-index*lis[0].offsetWidth},function(){
+				off=true
+			})
+		}
+		function startMove(ele,json,fn){
+			clearInterval(ele.time)
+			ele.time=setInterval(function(){
+				var on=true
+				for(var b in json){
+					console.log("循环")
+					if(b=="opacity"){
+						var EA=parseFloat(getStyle(ele,b))*100
+					}else{
+						var EA=parseInt(getStyle(ele,b))
+					}
+					var speed=json[b]-EA>0?Math.ceil((json[b]-EA)/20):Math.floor((json[b]-EA)/20)
+					EA+=speed
+					console.log(EA)
+					console.log(EA+=speed)
+					if(b=="opacity"){
+						ele.style[b]=EA/100
+						ele.style.fliter='alpha(apacity='+EA+')'
+					}else{
+						ele.style[b]=EA+"px"
+					}
+					if(json[b]!=EA){
+						on=false
+					}
+				}
+				if(on){
+					console.log(11)
+					clearInterval(ele.time)
+					if(fn){fn()}
+				}
+			},20)
+		}
+		function getStyle(ele,attr){
+			return ele.currentStyle?ele.currentStyle[attr]:getComputedStyle(ele)[attr]
+		}
+	}
+</script>
+</html>

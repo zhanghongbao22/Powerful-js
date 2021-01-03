@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="status"></div>
+</body>
+<script>
+console.log(Date.now())
+function draw(timestamp){
+  //calculate difference since last repaint
+  var drawStart = (timestamp || Date.now()),
+  diff = drawStart - startTime;
+  //use diff to determine correct next step
+  //reset startTime to this repaint
+  startTime = drawStart;
+  //draw again
+  requestAnimationFrame(draw);
+}
+var requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame,
+startTime = window.mozAnimationStartTime || Date.now();
+</script>
+</html>

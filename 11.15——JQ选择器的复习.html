@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p class="a ca "></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+		<div></div>
+		<p></p>
+	</div>
+	<input type="text" value="hahah">
+</body>
+<script>
+	//  .wrap	:nth-of-type(2) 把wrap每种类型的第二个输出出来
+	// .wrap div:nth-of-type(2) 把div的第二个输出出来
+	// $(".wrap p:nth-last-child(1)").css({
+	// 	height:"20px",
+	// 	background:"pink"
+	// })
+	// $(".wrap :nth-of-type(2)").css({  //把.wrap中 所有标签得第二个找出来 设置高度为20  背景为黄色
+	// 	height:"20px",
+	// 	background:"yellow"
+	// })
+	// $(".wrap :nth-of-type(n)").css({  //把.wrap中 所有标签得都找出来 设置高度为20  背景为黄色
+	// 	height:"20px",
+	// 	background:"yellow"
+	// })
+	$(".wrap p:nth-of-type(2)").css({  //把.wrap中 p标签第二个找出来 设置高度为20  背景为黄色
+		height:"20px",
+		background:"yellow"
+	})
+	$("input:text").val("我是修改后的值")
+	var content=$("input:text").val()
+	
+	console.log(content)
+</script>
+</html>

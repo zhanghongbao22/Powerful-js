@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>长方形的放大镜</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.box{
+			width: 1190px;
+			margin:30px auto;
+			position:relative;
+		}
+		.small{
+			width: 330px;
+			height: 330px;
+			position:relative;
+		}
+		.big{
+			position:absolute;
+			top:20px;
+			left:400px;
+			height:330px;
+			width: 660px;
+			overflow:hidden;
+			display:none;
+		}
+		.bigPic{
+			width: 1000px;
+			height: 1000px;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.move{
+			position:absolute;
+			top:0;
+			left:0;
+			background:#ccc;
+			opacity:0.8;
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="small">
+			<img src="small.jpg" alt="" class="smallPic">
+			<span class="move"></span>
+		</div>
+		<div class="big">
+			<img src="big.jpg" alt="" class="bigPic">
+		</div>
+	</div>
+</body>
+<script>
+	//计算小滑块的尺寸
+	var oBox=document.querySelector(".box")
+	var oMove=document.querySelector(".move")
+	var oSmall=document.querySelector(".small")
+	var oBig=document.querySelector(".big")
+	var oBigPic=document.querySelector(".bigPic")
+	//用 右边大图片的宽度 除以 大图片盒子的宽度 得到一个系数 然后这个系数 就是 比例
+	
+
+	oSmall.onmouseover=function(){
+		oBig.style.display="block"
+		oMove.style.display="block"
+		oMove.style.width=oSmall.offsetWidth/(oBigPic.offsetWidth/oBig.offsetWidth)+"px"
+		oMove.style.height=oSmall.offsetHeight/(oBigPic.offsetHeight/oBig.offsetHeight)+"px"
+		document.documentElement.onmousemove=function(ev){
+			var e=ev||window.event
+			var x=e.pageX-oBox.offsetLeft-oMove.offsetWidth/2
+			var y=e.pageY-oBox.offsetTop-oMove.offsetHeight/2
+			if(x<0){
+				x=0
+			}else if(x>oSmall.offsetWidth-oMove.offsetWidth){
+				x=oSmall.offsetWidth-oMove.offsetWidth
+			}
+			if(y<0){
+				y=0
+			}else if(y>oSmall.offsetHeight-oMove.offsetHeight){
+				y=oSmall.offsetHeight-oMove.offsetHeight
+			}
+			oMove.style.left=x+"px"
+			oMove.style.top=y+"px"
+			// oBigPic.style.left=-x*(oBigPic.offsetHeight/oBig.offsetHeight)+"px"
+			// oBigPic.style.top=-y*(oBigPic.offsetHeight/oBig.offsetHeight)+"px"
+			// 根据L和T  来求 等比例计算大图片的移动距离
+			var ML= oBigPic.offsetWidth-oBig.offsetWidth
+			var MT= oBigPic.offsetHeight-oBig.offsetHeight
+			var bl=x/(oSmall.offsetWidth-oMove.offsetWidth)*ML
+			var bt=y/(oSmall.offsetHeight-oMove.offsetHeight)*MT
+			console.log(bl)
+			console.log(Math.ceil((oBigPic.offsetHeight-oBig.offsetHeight)/(oSmall.offsetHeight-oMove.offsetHeight)*x))
+			oBigPic.style.left=-bl+"px"
+			oBigPic.style.top=-bt+"px"
+		}
+	}
+</script>
+</html>
